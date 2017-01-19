@@ -5,9 +5,17 @@ The code provided in this repository was created for the 'Urban Assets' work pac
 
 The software is designed to take a collection of calibrated images and a point cloud, and produce piecewise primitive surfaces from user annotations. The use can either specify a region of points on a quadric surface, or compose a surface from a pair of splines which are fitted to edge points.
 
-**An example of the software**
+**An example of the software with user interactions**
 
 <img alt="Image of the interface" src="doc/SoftwareExample.png" width="800px" />
+
+An example of the interface is shown in the image above. The user can either choose to fit a simple quadric surface, such as a cylinder in the top row, or a pair of splines in the bottom row. A collection of annotations are made to identify which points in the point cloud belong to the surface. Finally, the primitive surfaces are produced as shown on the right hand side.
+
+**Final Results**
+
+<img alt="Final Results" src="doc/FinalResults.png" width="800px" />
+
+A selection of completed surfaces are shown in the image above, after a full set of annotations and surface closure.
 
 ## Pre-requisites
 
