@@ -7,7 +7,7 @@ The software is designed to take a collection of calibrated images and a point c
 
 **An example of the software**
 
-<img alt="Image of the interface" src="doc/SoftwareExample.png" width="500px" />
+<img alt="Image of the interface" src="doc/SoftwareExample.png" width="800px" />
 
 ## Pre-requisites
 
