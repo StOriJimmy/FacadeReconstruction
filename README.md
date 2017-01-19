@@ -13,7 +13,7 @@ An example of the interface is shown in the image above. The user can either cho
 
 **Final Results**
 
-<img alt="Final Results" src="doc/FinalResults.png" width="800px" />
+<img alt="Final Results" src="doc/FinalResults.png" width="600px" />
 
 A selection of completed surfaces are shown in the image above, after a full set of annotations and surface closure.
 
