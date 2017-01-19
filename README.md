@@ -7,7 +7,7 @@ The software is designed to take a collection of calibrated images and a point c
 
 **An example of the software with user interactions**
 
-<img alt="Image of the interface" src="doc/SoftwareExample.png" width="800px" />
+<img alt="Image of the interface" src="doc/SoftwareExample.png" width="600px" />
 
 An example of the interface is shown in the image above. The user can either choose to fit a simple quadric surface, such as a cylinder in the top row, or a pair of splines in the bottom row. A collection of annotations are made to identify which points in the point cloud belong to the surface. Finally, the primitive surfaces are produced as shown on the right hand side.
 
