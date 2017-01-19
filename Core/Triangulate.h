@@ -26,15 +26,45 @@
 
 #include "Matrix.h"
 
+/**
+ * \brief A collection of functions to triangulate points given cameras and observations.
+ */
 namespace Triangulate
 {
-
+    /**
+     * @brief Triangulate a 3D point given a collection of observations in each
+     * camera, and a corresponding set of camera matrices.
+     * @param P A vector of 3x4 projection matrices.
+     * @param x A vector of homogenous (3x1) observations (one for each camera)
+     * @return A 3x1 matrix containing the triangulated point.
+     */
     Cu::Matrix Triangulate( const std::vector<Cu::Matrix>& P,
                             const std::vector<Cu::Matrix>& x );
 
-    inline Cu::Matrix pinv( const Cu::Matrix& P); ///< Compute the moore penrose pseudo inverse
-    inline Cu::Matrix CrossMatrix( const Cu::Matrix& M ); ///< Compute the cross matrix
-    Cu::Matrix FFromP( const Cu::Matrix& P1, const Cu::Matrix& P2 ); ///< Compute the fundamental matrix from a pair of prjection matrices
+    /**
+     * @brief Compute the moore penrose pseudo inverse
+     * @param P An arbitrary matrix
+     * @return The pseudo inverse of P
+     */
+    inline Cu::Matrix pinv( const Cu::Matrix& P);
+
+    /**
+     * @brief CrossMatrix.
+     * Given a vector 'v' compute a matrix 'M' such that for an arbitrary vector 'y',
+     * My = v^y
+     * Where '^' denotes the cross product.
+     * @param M The input matrix
+     * @return The 'cross' matrix
+     */
+    inline Cu::Matrix CrossMatrix( const Cu::Matrix& M );
+
+    /**
+     * @brief Compute the fundamental matrix from a pair of projection matrices.
+     * @param P1 The first projection matrix
+     * @param P2 The second projection matrix
+     * @return A 3x3 fundamental matrix.
+     */
+    Cu::Matrix FFromP( const Cu::Matrix& P1, const Cu::Matrix& P2 );
 }
 
 #endif
