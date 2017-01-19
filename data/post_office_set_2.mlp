@@ -1,0 +1,51 @@
+<!DOCTYPE MeshLabDocument>
+<MeshLabProject>
+ <MeshGroup>
+  <MLMesh label="sparse" filename="PostOfficePlyDense.ply">
+   <MLMatrix44>
+1 0 0 0 
+0 1 0 0 
+0 0 1 0 
+0 0 0 1 
+</MLMatrix44>
+  </MLMesh>
+ </MeshGroup>
+ <RasterGroup>
+  <MLRaster label="IMG_0352.JPG">
+   <VCGCamera TranslationVector="0.0373747 2.54251e-07 0.0344094 1" RotationMatrix="0.954327 0.0699821 -0.290453 0 0.0156367 -0.982546 -0.185359 0 -0.298355 0.172352 -0.938765 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="71.4134" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0352.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0356.JPG">
+   <VCGCamera TranslationVector="-1.07094 2.07499e-06 -0.115474 1" RotationMatrix="0.919512 -0.00999641 0.392935 0 0.0588584 -0.984903 -0.162791 0 0.388631 0.172816 -0.905042 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="70.0803" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0356.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0353.JPG">
+   <VCGCamera TranslationVector="-0.154315 -8.80909e-05 0.0312989 1" RotationMatrix="0.984042 0.0463106 -0.171807 0 0.0179379 -0.986438 -0.163154 0 -0.177032 0.157468 -0.971526 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="71.176" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0353.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0354.JPG">
+   <VCGCamera TranslationVector="-0.423679 0.000214963 0.0168947 1" RotationMatrix="0.999492 0.0318641 -1.62488e-07 0 0.0313669 -0.983898 -0.175958 0 -0.00560691 0.175869 -0.984398 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="70.8673" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0354.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0351.JPG">
+   <VCGCamera TranslationVector="0.18649 -0.00226086 0.123686 1" RotationMatrix="0.939053 0.0646519 -0.33764 0 0.00584088 -0.985015 -0.172368 0 -0.343724 0.15989 -0.925359 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="71.4661" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0351.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0350.JPG">
+   <VCGCamera TranslationVector="0.329098 9.38773e-07 0.179486 1" RotationMatrix="0.914585 0.0573268 -0.40031 0 -0.00426969 -0.988477 -0.151311 0 -0.404371 0.140096 -0.903802 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="71.566" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0350.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0349.JPG">
+   <VCGCamera TranslationVector="0.480453 -0.000642706 0.23392 1" RotationMatrix="0.8877 0.0679819 -0.455377 0 0.0054331 -0.990517 -0.13728 0 -0.460391 0.11939 -0.879651 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="71.6901" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0349.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0355.JPG">
+   <VCGCamera TranslationVector="-0.716045 -0.00433932 -0.00822702 1" RotationMatrix="0.980874 0.00197089 0.194636 0 0.034512 -0.985866 -0.163942 0 0.191562 0.167523 -0.967078 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="70.5201" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0355.JPG"/>
+  </MLRaster>
+  <MLRaster label="IMG_0357.JPG">
+   <VCGCamera TranslationVector="-1.32397 0.0112099 -0.31668 1" RotationMatrix="0.812731 -0.0487856 0.580593 0 0.0712406 -0.98069 -0.182129 0 0.578267 0.189384 -0.793562 0 0 0 0 1 " ViewportPx="5184 3456" FocalMm="68.9134" PixelSizeMm="0.01 0.01" LensDistortion="0 0" CenterPx="2592 1728"/>
+   <Plane semantic="1" fileName="post_office_set_2/IMG_0357.JPG"/>
+  </MLRaster>
+ </RasterGroup>
+</MeshLabProject>

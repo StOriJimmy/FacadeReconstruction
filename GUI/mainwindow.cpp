@@ -601,6 +601,9 @@ void MainWindow::open()
   trackball_widget->update();
 
   close_splash();
+
+  sub_3d->repaint();
+  sub_3d->update();
 }
 
 void MainWindow::save()

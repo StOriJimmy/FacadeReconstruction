@@ -39,8 +39,8 @@ int main(int argc, char *argv[])
     return -1;
   }
 
-  APP_DISPLAY_NAME = QString("AssetSketch");
-  APP_TECH_NAME = QString("DanGUI02");
+  APP_DISPLAY_NAME = QString("FacadeReconstruction");
+  APP_TECH_NAME = QString("FacadeGUI");
   BASE_PATH = QDir(QApplication::applicationDirPath()).absolutePath() + "/";
   COLOR_STYLE = QString("QPushButton { background-color : %1; color : %2; }");
 
@@ -69,11 +69,11 @@ int main(int argc, char *argv[])
 
   QString logFormat;
   //  logFormat = QString("[%-7l] <%C> %m\n");
-  logFormat = QString("[%t{HH:mm:ss}]{%-7L} %m\n");
+  logFormat = QString("[%{time}{HH:mm:ss}]%{function} %{message}\n");
   //  logFormat = QString("%m\n");
   ConsoleAppender *consoleAppender = new ConsoleAppender();
   consoleAppender->setFormat(logFormat);
-  Logger::globalInstance()->registerAppender(consoleAppender);
+  logger->registerAppender(consoleAppender);
   LOG_INFO() << "Starting" << APP_DISPLAY_NAME;
 
   MainWindow *window = new MainWindow;
