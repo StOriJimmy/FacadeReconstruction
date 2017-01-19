@@ -36,7 +36,9 @@ In order to install the post-processing scripts [GNU Octave](https://www.gnu.org
 ## Installation
 
 First clone the git repository using the command,
-> git clone https://github.com/dabeale/FacadeReconstruction
+> git clone --recursive https://github.com/dabeale/FacadeReconstruction
+
+Note that the '--recursive' option is required since the repository contains submodules, such as Eigen, VCGlib, and CuteLogger.
 
 To compile the software either open the project file in the source directory, and compile from Qt Creator, or run,
 > ./Build.sh
