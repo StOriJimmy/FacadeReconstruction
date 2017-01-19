@@ -602,8 +602,8 @@ void MainWindow::open()
 
   close_splash();
 
-  sub_3d->repaint();
-  sub_3d->update();
+  sub_3d->hide();
+  sub_3d->show();
 }
 
 void MainWindow::save()
