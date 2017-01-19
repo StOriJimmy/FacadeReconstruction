@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/editdelete.ico</file>
+        <file>icons/exit.ico</file>
+        <file>icons/fileopen.ico</file>
+        <file>icons/filesaveas.ico</file>
+        <file>icons/redo.ico</file>
+        <file>icons/reload.ico</file>
+        <file>icons/undo.ico</file>
+        <file>icons/window_close.ico</file>
+        <file>icons/zoom_fit_best.ico</file>
+        <file>icons/zoom_in.ico</file>
+        <file>icons/zoom_original.ico</file>
+        <file>icons/zoom_out.ico</file>
+        <file>icons/1leftarrow.ico</file>
+        <file>icons/1rightarrow.ico</file>
+        <file>icons/edit_add.ico</file>
+        <file>icons/eraser.ico</file>
+        <file>icons/plus.ico</file>
+        <file>icons/edit_remove.ico</file>
+        <file>icons/pencil.ico</file>
+        <file>icons/snapshot.png</file>
+        <file>resources/probability_distribution.png</file>
+        <file>icons/flatlines.png</file>
+        <file>icons/points.png</file>
+        <file>icons/no_edit.png</file>
+        <file>icons/selected_vert.png</file>
+        <file>icons/Hardware-Video-Camera-icon.png</file>
+        <file>resources/standby.jpg</file>
+        <file>resources/plswt.png</file>
+    </qresource>
+</RCC>

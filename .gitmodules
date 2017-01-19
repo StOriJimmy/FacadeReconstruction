@@ -1,0 +1,9 @@
+[submodule "libs/cutelogger"]
+	path = libs/cutelogger
+	url = https://github.com/dept2/CuteLogger
+[submodule "libs/Eigen"]
+	path = libs/Eigen
+	url = https://github.com/RLovelett/eigen
+[submodule "libs/vcglib"]
+	path = libs/vcglib
+	url = http://github.com/cnr-isti-vclab/vcglib/
