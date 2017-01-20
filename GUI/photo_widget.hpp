@@ -30,45 +30,50 @@
 #include "engine.hpp"
 #include "gl_photo.hpp"
 
-
+/**
+ * @brief The PhotoWidget class.
+ * The widget used to display the photographs.
+ */
 class PhotoWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
+
 public:
-  PhotoWidget(QWidget *parent=0);
-  QPushButton *color_swatch;
-  void reset_zoom();
+    /**
+     * @brief Construct a PhotoWidget
+     * @param parent A pointer to the parent
+     */
+    PhotoWidget(QWidget *parent=0);
+
+    QPushButton *color_swatch;  ///< The colour swatch
+    void reset_zoom();          ///< \brief Reset the zoom level
+
 public slots:
-  void prev_raster();
-  void next_raster();
-  void set_color();
-  void update();
+    void prev_raster();         ///< \brief Select the previous raster to view
+    void next_raster();         ///< \brief Select the next raster to view
+    void set_color();           ///< \brief Set the colour
+    void update();              ///< \brief Update the object
+
 protected:
-  DataStore *ds;
-  Engine *engine;
+    DataStore *ds;                  ///< A pointer to the datastore object
+    Engine *engine;                 ///< A pointer to the Engine object
 
-  void create_actions();
-  void create_toolbars();
+    void create_actions();          ///< \brief Create the actions
+    void create_toolbars();         ///< \brief Create the toolbars
 
-  QToolBar* toolBar;
-  GLPhoto* glarea;
+    QToolBar* toolBar;
+    GLPhoto* glarea;
 
-  QAction *prevRasterAction;
-  QAction *nextRasterAction;
+    QAction *prevRasterAction;
+    QAction *nextRasterAction;
+    QAction *deleteSketchesAction;
 
-//  QActionGroup *toolActionGroup;
-//  QAction *sketchAction;
-//  QAction *selectColorAction;
-//  QActionselectColorActiontion;
-//  QAction *mergeSelectedSketchesAction;
-  QAction *deleteSketchesAction;
+    QAction *reset_pz_action;
+    QAction *zoom_original_action;
+    QAction *zoom_out_action;
+    QAction *zoom_in_action;
 
-  QAction *reset_pz_action;
-  QAction *zoom_original_action;
-  QAction *zoom_out_action;
-  QAction *zoom_in_action;
-
-  QSlider *toolSizeSlider;
+    QSlider *toolSizeSlider;
 
 };
 

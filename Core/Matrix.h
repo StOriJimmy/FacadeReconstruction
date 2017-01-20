@@ -72,20 +72,23 @@ namespace Cu
     void print_matrix_octave(const double* data, uint32_t M, uint32_t N, const std::string& name);
 }
 
-typedef std::pair< std::vector< std::vector<double> >, std::vector< std::vector<uint32_t> > > VerticesFaces;
-
 /**
- * \brief Convert a column major matrix to an Eigen matrix.
- * This function uses the Eigen internal map method, and so it is as fast as a mem copy.
- * @param in A pointer to the first element in a contiguous array
- * @param M the number of rows
- * @param N the number of columns
- * @return An Eigen matrix
+ * \brief A collection of functions and classes for fitting surfaces to point clouds.
  */
-Cu::Matrix ConvertToEigen(const double *in, const uint32_t M, const uint32_t N );
-
-namespace MatrixFuncs
+namespace Core
 {
+    typedef std::pair< std::vector< std::vector<double> >, std::vector< std::vector<uint32_t> > > VerticesFaces;
+
+    /**
+     * \brief Convert a column major matrix to an Eigen matrix.
+     * This function uses the Eigen internal map method, and so it is as fast as a mem copy.
+     * @param in A pointer to the first element in a contiguous array
+     * @param M the number of rows
+     * @param N the number of columns
+     * @return An Eigen matrix
+     */
+    Cu::Matrix ConvertToEigen(const double *in, const uint32_t M, const uint32_t N );
+
     /**
     * \brief Normalise a homogeneous vector by dividing each element by the last element.
     * @param A the vector to normalis
@@ -109,13 +112,7 @@ namespace MatrixFuncs
      * @return A pair of matrices corresponding to U and S in the eigenvalue factorisation.
      */
     std::pair<Cu::Matrix, Cu::Matrix> EigenValues( const Cu::Matrix& A  );
-}
 
-/**
-* \brief A collection of functions for mesh manipulation
-*/
-namespace MeshFuncs
-{
     /**
     * \brief Remove all faces and vertices from 'vf 'which contain the vertices in the vector
     * VerticesToRemove.
@@ -130,13 +127,7 @@ namespace MeshFuncs
     * @param filename The path to the file
     */
     void WritePly(const VerticesFaces& vf, const std::string filename);
-}
 
-/**
- * \brief Some arbitrary mathematical functions
- */
-namespace Funcs
-{
     /**
     * \brief Compute the 1 dimensional Gaussian distribution
     * @param x The value from which to compute the likelihood

@@ -29,7 +29,7 @@
 /**
  * \brief A collection of functions to triangulate points given cameras and observations.
  */
-namespace Triangulate
+namespace Core
 {
     /**
      * @brief Triangulate a 3D point given a collection of observations in each

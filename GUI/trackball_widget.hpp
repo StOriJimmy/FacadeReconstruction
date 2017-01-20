@@ -30,38 +30,45 @@
 #include "engine.hpp"
 #include "gl_trackball.hpp"
 
+/**
+ * @brief The TrackballWidget class.
+ * The trackball widget displays the vcg trackball, the point cloud and any computed surfaces.
+ */
 class TrackballWidget : public QWidget
 {
   Q_OBJECT
 public:
-  TrackballWidget(QWidget *parent=0);
+    /**
+     * @brief Construct a new TrackBall widget.
+     * @param parent A pointer to the parent widget
+     */
+    TrackballWidget(QWidget *parent=0);
 
 public slots:
-  void add_raster();
-  void update();
-  void delete_all_surfaces();
-  void delete_last_surface();
+    void add_raster();              ///< Add a raster to the trackball  (not used)
+    void update();                  ///< Update the object
+    void delete_all_surfaces();     ///< Delete all of the surfaces from the trackball
+    void delete_last_surface();     ///< Delete the last surface from the trackball
 
 protected:
-  DataStore *ds;
-  Engine *engine;
+    DataStore *ds;                  ///< A pointer to the datastor object
+    Engine *engine;                 ///< A pointer to the Engine objects
 
-  void create_actions();
-  void create_toolbars();
-  QToolBar* toolBar;
-  GLTrackball* glarea;
+    void create_actions();          ///< \brief Create all of the actions
+    void create_toolbars();         ///< \brief Create all of the toolbars
 
-  QAction *addRasterAction;
+    QToolBar* toolBar;
+    GLTrackball* glarea;
+    QAction *addRasterAction;
 
-  QAction *draw_pointcloud;
-  QAction *draw_edges;
-  QAction *draw_surfaces;
-  QAction *draw_trackball;
-  QAction *draw_cameras;
+    QAction *draw_pointcloud;
+    QAction *draw_edges;
+    QAction *draw_surfaces;
+    QAction *draw_trackball;
+    QAction *draw_cameras;
 
-  QAction *deleteSurfacesAction;
-  QAction *deleteLastSurfaceAction;
-
+    QAction *deleteSurfacesAction;
+    QAction *deleteLastSurfaceAction;
 };
 
 

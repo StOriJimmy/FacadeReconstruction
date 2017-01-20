@@ -2,13 +2,6 @@
 
 #include <Eigen/Eigenvalues>
 
-Cu::Matrix ConvertToEigen(const double *in, const uint32_t M, const uint32_t N )
-{
-    Cu::Matrix out(M,N);
-    out = Eigen::Map<Cu::Matrix>(const_cast<double *>(in), M, N);
-    return out;
-}
-
 namespace Cu
 {
 void print_matrix_octave(const Cu::Matrix& A, const std::string& name)
@@ -92,8 +85,16 @@ void print_matrix_octave(const double* data, uint32_t M, uint32_t N, const std::
 #endif
 }
 
-namespace MatrixFuncs
+namespace Core
 {
+
+    Cu::Matrix ConvertToEigen(const double *in, const uint32_t M, const uint32_t N )
+    {
+        Cu::Matrix out(M,N);
+        out = Eigen::Map<Cu::Matrix>(const_cast<double *>(in), M, N);
+        return out;
+    }
+
     void HomogeneousNormalise( Cu::Matrix& in )
     {
         Cu::Matrix bottomRow = in.bottomRows(1);
@@ -121,10 +122,7 @@ namespace MatrixFuncs
         Eigen::EigenSolver<Cu::Matrix> es(A);
         return std::make_pair(es.eigenvectors().real() / es.eigenvectors().real().determinant(), es.eigenvalues().real());
     }
-}
 
-namespace MeshFuncs
-{
     template<typename T>
     inline void EraseFromList( std::vector<std::vector<T>>& list, const std::vector<bool>& indicators )
     {
@@ -210,10 +208,6 @@ namespace MeshFuncs
         }
         f.close();
     }
-}
-
-namespace Funcs
-{
     double normal_pdf(const double x, const double m, const double s)
     {
         static const double inv_sqrt_2pi = 0.398942280401433;

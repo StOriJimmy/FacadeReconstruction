@@ -32,25 +32,35 @@
 
 class GLArea;
 
+/**
+ * @brief The GLPhoto class.
+ * The panel for viewing the photographs in the GUI.
+ */
 class GLPhoto : public QGLWidget, protected QOpenGLFunctions
 {
   Q_OBJECT
 public:
-  GLPhoto(const QGLFormat &format,  QWidget *parent = 0);
-  ~GLPhoto();
-  QRect vp; // the viewport (in device coordinates)
+    /**
+     * @brief Construct a GLPhoto
+     * @param format The format
+     * @param parent A pointer to the parent
+     */
+    GLPhoto(const QGLFormat &format,  QWidget *parent = 0);
+    ~GLPhoto();
 
-  QPoint invert_y(QPoint pos);
+    QRect vp;                                   ///< The viewport (in device coordinates)
+    QPoint invert_y(QPoint pos);                ///< \brief Return a flipped point (with respect to the height of the image)
 public slots:
-  void rasterChanged();
-  void reset_pan_zoom();
-  void zoom_in();
-  void zoom_out();
-  void zoom_2_original();
+    void rasterChanged();                       ///< \brief Call when the raster has changed
+    void reset_pan_zoom();                      ///< \brief Call when the pan / zoom has been reset
+    void zoom_in();                             ///< \brief Zoom in
+    void zoom_out();                            ///< \brief Zoom out
+    void zoom_2_original();                     ///< \brief Reset the zoom to the original
+
 signals:
-  void enable_zoom(bool value);
-  void enable_zoom_in(bool value);
-  void enable_zoom_out(bool value);
+    void enable_zoom(bool value);               ///< \brief Emitted with true when zooming is possible
+    void enable_zoom_in(bool value);            ///< \brief Emitted with true when zooming in is possible
+    void enable_zoom_out(bool value);           ///< \brief Emitted with true when zooming out is possible
 
 protected:
   void initializeGL();
@@ -67,21 +77,21 @@ protected:
   void mouseDoubleClickEvent(QMouseEvent *e);
 
 protected:
-  DataStore *ds;
-  Engine *engine;
+  DataStore *ds;                                 ///< A pointer to the datastore object
+  Engine *engine;                                ///< A pointer to the Engine object
 
-  QPoint cursor_2_image_coords(QPoint pos);
-  void draw2D();
+  QPoint cursor_2_image_coords(QPoint pos);      ///< \brief Convert a cursor position in to image coordinates
+  void draw2D();                                 ///< \brief Draw the user annotations to the screen.
 
 
-  QTimer timer; // timer to auto refresh the gl window when app is active
+  QTimer timer;                                  ///< Timer to auto refresh the gl window when app is active
 
-  GLuint splat_tex_id;
-  float splat_tex_size;
-  PanZoomer *pz;
+  GLuint splat_tex_id;                           ///< The tool gl texture id
+  float splat_tex_size;                          ///< The tool gl texture size
+  PanZoomer *pz;                                 ///< A pointer to the PanZoomer
 
 protected slots:
-  void refresh();
+  void refresh();                                ///< Update the grapgics window when active
 };
 
 #endif /* GLVP_PHOTO_HPP_ */

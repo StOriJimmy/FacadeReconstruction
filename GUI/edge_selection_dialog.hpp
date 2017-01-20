@@ -29,6 +29,9 @@
 #include "datastore.hpp"
 #include "engine.hpp"
 
+/**
+ * @brief The EdgeSelectionDialog class.
+ */
 class EdgeSelectionDialog : public QDialog
 {
   Q_OBJECT
@@ -69,8 +72,6 @@ private:
   QLabel *k_label;
   QLabel *maxiter_label;
   QLabel *lambda_label;
-
-
 };
 
 

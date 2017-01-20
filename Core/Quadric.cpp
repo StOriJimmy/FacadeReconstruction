@@ -1,7 +1,7 @@
 #include "Quadric.h"
 
 
-namespace Geometry
+namespace Core
 {
     Quadric::Quadric()
     {
@@ -105,7 +105,7 @@ namespace Geometry
         }
         m_params.m_c = std::real(sol(index));
 
-        auto US = MatrixFuncs::EigenValues(A);
+        auto US = EigenValues(A);
         return Cu::Vector(US.second).minCoeff();
     }
 
@@ -310,7 +310,7 @@ namespace Geometry
         Cu::Matrix b = Eigen::Map<Cu::Matrix>(const_cast<double *>(mb),3,1);
         double c = m_params.m_c;
 
-        auto US = MatrixFuncs::EigenValues(A);
+        auto US = EigenValues(A);
         uint32_t minrow;
         double mins = Cu::Vector(US.second).minCoeff(&minrow);
         auto vf = GenerateUnitCylinder(N, minrow);
@@ -349,7 +349,7 @@ namespace Geometry
         Cu::Matrix A = Eigen::Map<Cu::Matrix>(const_cast<double *>(ma),3,3).transpose();
         Cu::Matrix b = Eigen::Map<Cu::Matrix>(const_cast<double *>(mb),3,1);
         double c = m_params.m_c;
-        auto US = MatrixFuncs::EigenValues(A);
+        auto US = EigenValues(A);
         US.first = -US.first; // Turns the quadric inside out (for consistency)
         uint32_t minrow;
         double mins = Cu::Vector(US.second).minCoeff(&minrow);
@@ -399,7 +399,7 @@ namespace Geometry
         Cu::Matrix A = Eigen::Map<Cu::Matrix>(const_cast<double *>(ma),3,3).transpose();
         Cu::Matrix b = Eigen::Map<Cu::Matrix>(const_cast<double *>(mb),3,1);
         Cu::Matrix mu = -0.5*(A.inverse()*b);
-        auto US = MatrixFuncs::EigenValues(A);
+        auto US = EigenValues(A);
 
         Cu::Matrix D = Eigen::Map<Cu::Matrix>(const_cast<double*>(data),3,N);
         D.colwise() -= Cu::Vector(mu);
@@ -441,7 +441,7 @@ namespace Geometry
         Cu::Matrix mu,d;
         Mud(A,b,c,mu,d);
 
-        auto US = MatrixFuncs::EigenValues(A);
+        auto US = EigenValues(A);
 
         if(d(0)<0)
         {
@@ -486,7 +486,7 @@ namespace Geometry
         }
         removev.resize(added);
 
-        MeshFuncs::RemoveVerticesFaces(vf, removev);
+        RemoveVerticesFaces(vf, removev);
 
         //return vf;
     }

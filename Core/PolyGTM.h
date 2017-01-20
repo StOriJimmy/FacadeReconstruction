@@ -31,17 +31,10 @@
 
 #include "Matrix.h"
 
-/**
- * A collection of functions, structures and classes for computing a Generative Topographic Map with a latent
- * space of dimension 1.
- *
- * For more information about generative topographic maps, please see the paper,
- *      "GTM: The generative topographic mapping" Bishop, Svensén and Williams. Neural Computation, 1998.
- */
-namespace GTM
+namespace Core
 {
     /**
-     * @brief The Output struct.
+     * @brief The GTM Output struct.
      * A structure containing all of the required data for a polynomial spline, and its probability distribution.
      */
     struct Output
@@ -53,7 +46,7 @@ namespace GTM
     };
 
     /**
-     * @brief The Input struct.
+     * @brief The GTM Input struct.
      * A structure containing all of the data and parameters required to fit a GTM.
      */
     struct Input
@@ -81,6 +74,9 @@ namespace GTM
      * @brief Polynomial.
      * Run the EM algorithm to fit the GTM with a polynomial basis. This function implicitly calls the CreateStartPointUsingPCA, and
      * so one only need to provide the input data and parameters.
+     *
+     * For more information about generative topographic maps, please see the paper,
+     *      "GTM: The generative topographic mapping" Bishop, Svensén and Williams. Neural Computation, 1998.
      * @param input The unput data and parameters
      * @return The output struct.
      */

@@ -27,7 +27,7 @@
 #include "Matrix.h"
 #include <random>
 
-namespace Sample
+namespace Core
 {
     /**
      * @brief The Generator class.

@@ -29,10 +29,7 @@
 
 #include "Matrix.h"
 
-/**
- * \brief Functions and classes relating to computational geometry
- */
-namespace Geometry
+namespace Core
 {
     /**
     * \brief A class representing a quadric. 

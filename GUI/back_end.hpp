@@ -36,34 +36,44 @@
 #include "Sample.h"
 #include "PolyGTM.h"
 
-    /**
-     * Convert a collection of sketches to an edge.
-     */
-    void SketchesToEdge(const QList<Sketch*> &sketches,
-                        const QMap<rasterID, Raster*> &rasters,
-                        const Mesh* point_cloud,
-                        QList< vcg::Point3f > &edge_points,
-                        const uint32_t NumberOfNewSamples=0,
-                        const double aspectratio = 1.0);
+/**
+ * @brief Convert a collection of sketches to an edge.
+ * @param sketches A QList of Sketches
+ * @param rasters A QMap of rasters
+ * @param point_cloud The input point cloud
+ * @param edge_points A QList of edge points
+ * @param NumberOfNewSamples The number of samples to draw from the sketches
+ * @param aspectratio The devicepixelratio
+ */
+void SketchesToEdge(const QList<Sketch*> &sketches,
+                    const QMap<rasterID, Raster*> &rasters,
+                    const Mesh* point_cloud,
+                    QList< vcg::Point3f > &edge_points,
+                    const uint32_t NumberOfNewSamples=0,
+                    const double aspectratio = 1.0);
 
 
-    /**
-     * Convert a collection of edges to a surface.
-     */
-    void EdgesToSurface(const QList<Edge *> &edges,
-                        const SurfaceInputParams *params,
-                        CMesh &surface_out);
+/**
+ * @brief Convert a collection of edges to a surface.
+ * @param edges A QList of edge maps
+ * @param params The parameters of the model
+ * @param surface_out A CMesh which is written to
+ */
+void EdgesToSurface(const QList<Edge *> &edges,
+                    const SurfaceInputParams *params,
+                    CMesh &surface_out);
 
-//    /**
-//     * Create a Poisson Surface from a mesh
-//     */
-//    void CreatePoissonSurface(CMesh &inmesh , CMesh &outmesh);
-
-
-    /**
-    * Merge the surfaces with poisson reconstruction, optionally colorize them using the mlp file and saves the results in filename.
-    */
-   bool SaveTotal(QString filename, QList<Mesh *> surfaces, bool make_poisson=true, bool colorize=false, QString mlp_filename="");
+/**
+ * @brief SaveTotal.
+ * Merge the surfaces with poisson reconstruction, optionally colorize them using the mlp file and saves the results in filename.
+ * @param filename The name of the file to save to
+ * @param surfaces A QList of surfaces
+ * @param make_poisson If true, run the poisson reconstruction using MeshLab
+ * @param colorize If true apply colours to the surface
+ * @param mlp_filename The mlp file to save to (only used if colourize is set to true)
+ * @return true on success
+ */
+bool SaveTotal(QString filename, QList<Mesh *> surfaces, bool make_poisson=true, bool colorize=false, QString mlp_filename="");
 
 
 #endif

@@ -1,6 +1,6 @@
 #include "PolyGTM.h"
 
-namespace GTM
+namespace Core
 {
     void distance2(const double* data1, const double* data2, double* D,  const uint32_t N1, const uint32_t N2, const uint32_t K); ///< The distance 2 function
     void mahal(const uint32_t M, const double BetaInv, const double* D, double* R, const uint32_t N, const uint32_t K, const double *sum);
@@ -16,7 +16,7 @@ namespace GTM
         Cu::Matrix dminmu = data - mu.replicate(1,input.N);
         Cu::Matrix sigma = (dminmu*dminmu.transpose())/ (input.N-1) ;
 
-        auto US = MatrixFuncs::EigenValues( sigma );
+        auto US = EigenValues( sigma );
         uint32_t maxrow;
         Cu::Vector(US.second).maxCoeff(&maxrow);
 

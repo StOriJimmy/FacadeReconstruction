@@ -28,51 +28,57 @@ class GLPhoto;
 class QVector2D;
 class QPoint;
 
+/**
+ * @brief The PanZoomer class.
+ * A class for panning and zooming the GLPhoto widget.
+ */
 class PanZoomer
 {
-
 public:
-  PanZoomer(GLPhoto *buddy);
-  ~PanZoomer();
+    /**
+     * @brief Construct a PanZoomer
+     * @param buddy The GLPhoto to use with the PanZoomer
+     */
+    PanZoomer(GLPhoto *buddy);
+    ~PanZoomer();
 
-  void reset(QRectF zoom_rect);
-  QVector2D world_2_screen_space(QVector2D world_coords);
-  QVector2D screen_2_world_space(QVector2D screen_coords);
-  QVector2D screen_2_world_space(QPoint screen_coords);
-  void push_GL_transform();
-  void pop_GL_transform();
-  void start_panning(QPoint p);
-  void pan(QPoint p);
-  void end_panning();
-  void zoom(float delta);
-  bool can_zoom_in();
-  bool can_zoom_out();
-  qreal get_zoom_factor();
-  void zoom_2_original();
+    void reset(QRectF zoom_rect);                               ///< \brief Reset the PanZoomer to the given rectangle
+    QVector2D world_2_screen_space(QVector2D world_coords);     ///< \brief Convert between world and screen coodinates
+    QVector2D screen_2_world_space(QVector2D screen_coords);    ///< \brief Convert between screen and world coordinates
+    QVector2D screen_2_world_space(QPoint screen_coords);       ///< \brief Convert between screen and world coordinates
+    void push_GL_transform();                                   ///< \brief Push transformations to GL
+    void pop_GL_transform();                                    ///< \brief Pop the GL stack
+    void start_panning(QPoint p);                               ///< \brief Start panning from a mouse position 'p'
+    void pan(QPoint p);                                         ///< \brief Pan using the mouse position 'p'
+    void end_panning();                                         ///< \brief End the panning
+    void zoom(float delta);                                     ///< \brief Zoom, given a change in zoom level 'delta'
+    bool can_zoom_in();                                         ///< \brief Return true if it is possible to zoom in
+    bool can_zoom_out();                                        ///< \brief Return true if it is possible to zoom out
+    qreal get_zoom_factor();                                    ///< \brief Return the zoom factor
+    void zoom_2_original();                                     ///< \brief Return the zool level to its original
 
 protected:
-  void update_mouse_position();
+    void update_mouse_position();                               ///< \brief Update the mouse position
 
 private:
-  float ZOOM_BASE; // the base to which the zoomlevel is the exponent
-  int MIN_ZOOM_LEVEL;
-  int MAX_ZOOM_LEVEL;
-  GLPhoto *canvas; // the control we are hooked into
-  float zoom_factor;   // The magnification factor
-  float zoom_level;    // An easy way to change mag factor exponentially
-  QVector2D last_mouse_pos;
-  QVector2D zoom_pos_world_space;    // WL: These keep track of current zoom position in object and mouse coords
-  QVector2D zoom_pos_mouse_space;
+    float ZOOM_BASE;                     ///< The base to which the zoomlevel is the exponent
+    int MIN_ZOOM_LEVEL;                  ///< The minimum zoom level
+    int MAX_ZOOM_LEVEL;                  ///< The maximum zoom level
+    GLPhoto *canvas;                     ///< A pointer to the control we are hooked into
+    float zoom_factor;                   ///< The magnification factor
+    float zoom_level;                    ///< An easy way to change mag factor exponentially
+    QVector2D last_mouse_pos;            ///< The last mouse position
+    QVector2D zoom_pos_world_space;      ///< These keep track of current zoom position in object and mouse coords
+    QVector2D zoom_pos_mouse_space;      ///< These keep track of current zoom position in object and mouse coords
 
-  bool panning_enabled;
-  bool currently_panning;
+    bool panning_enabled;                ///< True if panning was enabled
+    bool currently_panning;              ///< True if we are currently panning
 
-  void enable_panning(bool value);
-  void set_zoom_level(float value);
+    void enable_panning(bool value);     ///< Set the 'panning enabled' flag to 'value'
+    void set_zoom_level(float value);    ///< Set the zoom level
 
-  int viewport_width();
-  int viewport_height();
-
+    int viewport_width();                ///< Return the viewport width
+    int viewport_height();               ///< Return the viewport height
 };
 
 #endif /* PANZOOMER_HPP_ */

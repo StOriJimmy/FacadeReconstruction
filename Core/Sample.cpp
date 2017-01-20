@@ -5,7 +5,7 @@
 
 #include "Triangulate.h"
 
-namespace Sample
+namespace Core
 {
     Generator::Generator()
     {
@@ -123,7 +123,7 @@ namespace Sample
             const Cu::Matrix& Edge1 = NormalEdges[sim];
             const Cu::Matrix& Edge2 = NormalEdges[sim2];
 
-            F = Triangulate::FFromP( P[sim], P[sim2] );
+            F = FFromP( P[sim], P[sim2] );
             auto x = SampleDiscrete2D( Edge1, 1);
 
            // Cu::print_matrix_octave(Edge1, "Edge1");
@@ -181,7 +181,7 @@ namespace Sample
                 Cu::print_matrix_octave(x2, "x2");
                 Xs[0] = x1; Xs[1] = x2;
 
-                auto X = Triangulate::Triangulate(Ps, Xs);
+                auto X = Triangulate(Ps, Xs);
 
                 for(j=0;j<3;++j)
                 {

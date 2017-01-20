@@ -41,59 +41,67 @@ class PhotoWidget;
 class TrackballWidget;
 class Engine;
 
+/**
+ * @brief The MainWindow class.
+ * The main window for the GUI.
+ */
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
 
 public:
-  MainWindow(QMainWindow *parent = 0);
-  ~MainWindow();
+    /**
+     * @brief Construct the main window
+     * @param parent
+     */
+    MainWindow(QMainWindow *parent = 0);
+    ~MainWindow();
 
-  QAction *openAction;
+    QAction *openAction;   ///< The open file action
 
-  void raise_splash();
-  void close_splash();
+    void raise_splash();   ///< \brief Display the 'loading' splash
+    void close_splash();   ///< \brief Close the 'loading' splash
 
 public slots:
-  void open();
-  void save();
+    void open();             ///< \brief Open a file from disk
+    void save();             ///< \brief Save to disk
 
 protected:
-  void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);
 
-  //  void open(QString filename);
 protected slots:
-  void onCylinderAction();
-  void onQuadricAction();
-  void onGTMIAction();
-  void onGTMOAction();
-  void onAdvancedSurfaceAction();
-  void onAdvancedEdgeAction();
-  void onNextAction();
-  void onCancelAction();
-  void onGotoAdvancedAction();
-  void onGotoSimpleAction();
-private:
-  void create_actions();
-  void create_menus();
-  void create_toolbars();
-  void next_cyl_action();
-  void next_quad_action();
-  void next_gtmi_action();
-  void next_gtmo_action();
+    void onCylinderAction();          ///< \brief Called when the cylinder tool is requested
+    void onQuadricAction();           ///< \brief Called when the quadric tool is requested
+    void onGTMIAction();              ///< \brief Called when the the 'parallel GTM' tool is requested
+    void onGTMOAction();              ///< \brief Called when the 'orthogonal GTM' tool is requested
+    void onAdvancedSurfaceAction();   ///< \brief Called when the advanced surface creation tool is requested
+    void onAdvancedEdgeAction();      ///< \brief Called when the advanced edge tool is requested
+    void onNextAction();              ///< \brief Called when the 'next' button is pushed in wizard mode
+    void onCancelAction();            ///< \brief Called when 'cancel' is pushed in wizard mode
+    void onGotoAdvancedAction();      ///< \brief Called when the 'goto advanced mode' is initialised
+    void onGotoSimpleAction();        ///< \brief Called when the 'goto simple (wizard) mode' is initialised
 
 private:
-  DataStore *ds;
-  Engine *engine;
+    void create_actions();            ///< \brief Create all of the actions
+    void create_menus();              ///< \brief Create all of the menus
+    void create_toolbars();           ///< \brief Create all of the toolbars
+    void next_cyl_action();           ///< \brief Called when 'next' is called in the cylinder tool in wizard mode
+    void next_quad_action();          ///< \brief Called when the 'next' button is called in the quadric tool in wizard mode
+    void next_gtmi_action();          ///< \brief Called when the 'next' button is called in the parallel GTM tool in wizard mode
+    void next_gtmo_action();          ///< \brief Called when the 'next' button is called in the orthogonal GTM tool in wizard mode
 
-  PhotoWidget *photo_widget;
-  TrackballWidget *trackball_widget;
-  QMdiArea *mdi_area;
+private:
+  DataStore *ds;                        ///< A pointer to the data store object
+  Engine *engine;                       ///< A pointer to the Engine object
 
-  QMdiSubWindow *sub_3d;
-  QMdiSubWindow *sub_2d;
+  PhotoWidget *photo_widget;            ///< A pointer to the photo widget
+  TrackballWidget *trackball_widget;    ///< A pointer to the trackball widget
+  QMdiArea *mdi_area;                   ///< A pointer to the MDI area
 
-  QMenu *fileMenu;
+  QMdiSubWindow *sub_3d;                ///< A pointer to the 3D window
+  QMdiSubWindow *sub_2d;                ///< A pointer to the 2D window
+
+  QMenu *fileMenu;                      ///< A pointer to the file menu
   QMenu *editMenu;
 
   QToolBar *fileToolBar;
@@ -125,18 +133,22 @@ private:
   QFont bold_font;
   QFont italic_font;
 
-  enum WizStep{
+  /**
+   * @brief An enumeration specifying which step of the wizard is being operated in.
+   */
+  enum WizStep
+  {
     NO_STEP,
     STEP_1,
     STEP_2
   };
 
-  bool wizard_mode;
-  SurfaceKind wizard_kind;
-  WizStep wizard_step;
+  bool wizard_mode;         ///< True if using wizard mode
+  SurfaceKind wizard_kind;  ///< The kind of surface
+  WizStep wizard_step;      ///< The step in the wizard currently used
 
 //  QPixmap *splash_pix;
-  QSplashScreen *splash;
+  QSplashScreen *splash;    ///< A pointer to the 'loading' splash window
 
 };
 

@@ -69,13 +69,19 @@ public:
 
 };
 
-  // return time since start in msecs (wraps after 24 hours)
+/**
+ * \brief return time since start in msecs (wraps after 24 hours)
+ */
 inline QString now()
 {
   return QString::number(gTime->elapsed());
 }
 
-
+/**
+ * @brief Return a good text colour
+ * @param rBackgroundColor
+ * @return
+ */
 inline QColor getIdealTextColor(const QColor& rBackgroundColor)
 {
     const int THRESHOLD = 105;
@@ -103,6 +109,9 @@ inline QColor getIdealTextColor(const QColor& rBackgroundColor)
 class CFace;
 class CVertex;
 
+/**
+ * @brief The used types for vcg
+ */
 struct MyUsedTypes
     : public vcg::UsedTypes<
     vcg::Use<CVertex>::AsVertexType,
@@ -113,6 +122,10 @@ struct MyUsedTypes
 
 // compositing wanted proprieties
 
+/**
+ * @brief The CVertex class.
+ * A specification for the vertex attributes in the mesh
+ */
 class CVertex
     : public vcg::Vertex<
     MyUsedTypes,
@@ -124,6 +137,10 @@ class CVertex
 {
 };
 
+/**
+ * @brief The CFace class.
+ * A specification for the face attributes in the mesh
+ */
 class CFace
     : public vcg::Face<
     MyUsedTypes,
@@ -134,6 +151,10 @@ class CFace
 {
 };
 
+/**
+ * @brief The CMesh class.
+ * The definition of the mesh in terms of the declared vcg types.
+ */
 class CMesh
     : public vcg::tri::TriMesh<
     std::vector<CVertex>,

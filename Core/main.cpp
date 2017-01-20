@@ -6,9 +6,9 @@ int main(int argv, char** arg)
 {
     (void) argv;
     (void) arg;
-    Cu::Matrix dat = ConvertToEigen(data,2,5);
-    GTM::Input in{ data, 2, 5, 2, 2, 1, 2};
-    GTM::Output o = GTM::CreateStartPointUsingPCA(in);
+    Cu::Matrix dat = Core::ConvertToEigen(data,2,5);
+    Core::Input in{ data, 2, 5, 2, 2, 1, 2};
+    Core::Output o = Core::CreateStartPointUsingPCA(in);
     std::cout << "Start Point: " << std::endl ;
     std::cout << "Phi" << o.Phi <<std::endl;
     std::cout << "Pi" << o.Pi <<std::endl;
@@ -16,7 +16,7 @@ int main(int argv, char** arg)
 
     std::cout << o.W*o.Phi <<std::endl;
 
-    GTM::Output ogt = GTM::Polynomial(in);
+    Core::Output ogt = Core::Polynomial(in);
     std::cout << std::endl << "GTM: " << std::endl ;
     std::cout << "Phi" << ogt.Phi <<std::endl;
     std::cout << "Pi" << ogt.Pi <<std::endl;

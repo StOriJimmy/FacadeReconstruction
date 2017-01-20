@@ -139,7 +139,7 @@ void SketchesToEdge(const QList<Sketch *> &sketches,
 
     if(NumberOfNewSamples > 0)
     {
-        Sample::Generator sg;
+        Core::Generator sg;
         auto np = sg.Sample3DEdge(Edge, Ps, NumberOfNewSamples);
         for(const auto& n : np)
         {
@@ -226,7 +226,7 @@ void EdgesToSurface(const QList<Edge *> &edges,
         case CYLINDER :
         {
             const QuadricInputParams* inputparams = static_cast<const QuadricInputParams*>(params);
-            Geometry::Quadric quad(data, sumsizes, inputparams->sigma);
+            Core::Quadric quad(data, sumsizes, inputparams->sigma);
             //Cu::print_matrix_octave(data, 3, sumsizes, "AllData");
 
             if(params->SurfaceType == QUADRIC)
@@ -259,8 +259,8 @@ void EdgesToSurface(const QList<Edge *> &edges,
             {
                 double *dmat = const_cast<double*>(data)+((k>0)?Sizes[k-1]*3:0);
 
-                GTM::Input in{dmat, 3, Sizes[k], inputparams->K, inputparams->MaxIter, inputparams->lambda, inputparams->Degree};
-                GTM::Output out=GTM::Polynomial(in);
+                Core::Input in{dmat, 3, Sizes[k], inputparams->K, inputparams->MaxIter, inputparams->lambda, inputparams->Degree};
+                Core::Output out=Core::Polynomial(in);
 
                 // It might be worth trimming points with a low value of pi here.
                 pts[k] = out.W * out.Phi;
@@ -421,7 +421,7 @@ std::vector<uint32_t> FindPointsFromCombinedProbability(const EdgeMapProjection&
     {
         Cu::Matrix rwiseMean = littlep.rowwise().mean();
         float thresh = rwiseMean.data()[0];
-        return MatrixFuncs::find( littlep, [&](const float a){ return a > thresh; } );
+        return Core::find( littlep, [&](const float a){ return a > thresh; } );
     }
     else
     {

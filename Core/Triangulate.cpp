@@ -3,7 +3,7 @@
 
 #include <Eigen/SVD>
 
-namespace Triangulate
+namespace Core
 {
     Cu::Matrix Triangulate( const std::vector<Cu::Matrix>& P,
                             const std::vector<Cu::Matrix>& x )

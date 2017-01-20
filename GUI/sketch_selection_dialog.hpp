@@ -29,25 +29,33 @@
 #include "datastore.hpp"
 #include "engine.hpp"
 
+/**
+ * @brief The SketchSelectionDialog class.
+ * The dialogue box used in advanced mode to determine the type of fit to be computed.
+ * @todo Update the dialogue box so that points can be sampled on the edge.
+ */
 class SketchSelectionDialog : public QDialog
 {
   Q_OBJECT
 public:
-  SketchSelectionDialog(QWidget *parent=0);
+    /**
+     * @brief Construct a SketchSelectionDialogue
+     * @param parent A pointer to the parent
+     */
+    SketchSelectionDialog(QWidget *parent=0);
 
-  QSet<sketchID> selection;
-  uint32_t NumberOfNewSamples=0;
-  double aspectratio = 1.0;
+    QSet<sketchID> selection;       ///< The sketch selection
+    uint32_t NumberOfNewSamples=0;  ///< The number of new samples (always zero for now)
+    double aspectratio = 1.0;       ///< The the aspect ratio
 
 public slots:
-  void check_selection();
+  void check_selection();           ///< \brief Check that all of the input is correct
 
 private:
-  DataStore *ds;
-  QList<QPushButton *> btns;
-  QSpinBox *s1;
-  QDoubleSpinBox *s2;
-
+  DataStore *ds;                    ///< A pointer to the datastor object
+  QList<QPushButton *> btns;        ///< A Qlist of buttons
+  QSpinBox *s1;                     ///< A selection spinbox
+  QDoubleSpinBox *s2;               ///< A selection spinbox
 };
 
 
