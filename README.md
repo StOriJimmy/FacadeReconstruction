@@ -7,15 +7,15 @@ The software is designed to take a collection of calibrated images and a point c
 
 ###An example of the software with user interactions
 
-<img alt="Image of the interface" src="doc/SoftwareExample.png" width="600px" />
+<img alt="Image of the interface" src="docs/SoftwareExample.png" width="600px" />
 
 An example of the interface is shown in the image above. The user can either choose to fit a simple quadric surface, such as a cylinder in the top row, or a pair of splines in the bottom row. A collection of annotations are made to identify which points in the point cloud belong to the surface. Finally, the primitive surfaces are produced as shown on the right hand side.
 
-The documentation for the library can be found at [dabeale.github.io/FacadeReconstruction](http://dabeale.github.io/FacadeReconstruction).
+The documentation for the library can be found at [dabeale.github.io/FacadeReconstruction](http://dabeale.github.io/FacadeReconstruction). A technical report has been written for arxiv.org and can be found at [http://arxiv.org/abs/1701.05754](http://arxiv.org/abs/1701.05754).
 
 ###Final Results
 
-<img alt="Final Results" src="doc/FinalResults.png" width="600px" />
+<img alt="Final Results" src="docs/FinalResults.png" width="600px" />
 
 A selection of completed surfaces are shown in the image above, after a full set of annotations and surface closure.
 
@@ -55,15 +55,15 @@ Once the code has compiled, open the executable from the 'bin' directory as foll
 
 A file input dialogue will appear from which the .mlp file must be chosen. For the purposes of demonstration, open the 'post_office_set_2.mlp' file in the 'data' subdirectory. Once the file has loaded the software will display an interface, as shown below,
 
-<img alt="LoadedInterface" src="doc/OpeningScreen.png" width="600px" />
+<img alt="LoadedInterface" src="docs/OpeningScreen.png" width="600px" />
 
 Click on the button labelled 'MAKE CYLINDER'. Move the slider above the image to just over half way, and paint over one of the pillars on the entrance of the building. Once this is done, click on the right pointing green arrow once, to select a new view. Paint over the same pillar again. The view should be similar to the one shown below,
 
-<img alt="CylinderFitting" src="doc/PaintedPillar.png" width="600px" />
+<img alt="CylinderFitting" src="docs/PaintedPillar.png" width="600px" />
 
 Click on the button labelled 'NEXT' in the top left hand corner to return to the main screen. If there are too few views selected, or not enough annotation, the interface will display an error message. The main interface should look like the one below, displaying the point cloud and the surface on at trackball.
 
-<img alt="CylinderFitting" src="doc/CylinderFitted.png" width="600px" />
+<img alt="CylinderFitting" src="docs/CylinderFitted.png" width="600px" />
 
 The same process is used for fitting an Ellipsoid, or a pair of GTM splines arranged orthogonally or in parallel.
 
@@ -72,4 +72,4 @@ The results of extracting the primitive surfaces and final closure of the surfac
 
 ### Method comparison
 
-<img alt="MethodComparison" src="doc/MethodComparison.png" width="600px" />
+<img alt="MethodComparison" src="docs/MethodComparison.png" width="600px" />
