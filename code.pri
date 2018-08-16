@@ -14,7 +14,7 @@ RCC_DIR     = $$BUILD_DIR/rcc
 LIBS_DIR = ../libs
 # OPENCV_DIR = /usr/local/opt/opencv/
 VCG_DIR  = $$LIBS_DIR/vcglib
-EIGEN_DIR = $$LIBS_DIR/Eigen
+EIGEN_DIR = $$LIBS_DIR/eigen-git-mirror
 QTLOG_DIR = $$LIBS_DIR/cutelogger
 
 # Executable name
