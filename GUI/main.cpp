@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
   //  logFormat = QString("%m\n");
   ConsoleAppender *consoleAppender = new ConsoleAppender();
   consoleAppender->setFormat(logFormat);
-  cuteLogger->registerAppender(consoleAppender);
+  loggerInstance()->registerAppender(consoleAppender);
   LOG_INFO() << "Starting" << APP_DISPLAY_NAME;
 
   MainWindow *window = new MainWindow;
